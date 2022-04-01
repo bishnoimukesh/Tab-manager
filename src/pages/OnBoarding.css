@@ -39,3 +39,8 @@ input:focus{
 ::placeholder{
     color: #fff;
 }
+
+.header{
+    display: flex;
+    justify-content: space-between;
+}
