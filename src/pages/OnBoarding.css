@@ -1,5 +1,5 @@
 body{
-    background: url('https://source.unsplash.com/random/?nature/1366×768') no-repeat;
+    background: url('https://source.unsplash.com/1600x900/?nature') no-repeat;
     background-size: cover;
 }
 .onboard-page{
@@ -43,4 +43,16 @@ input:focus{
 .header{
     display: flex;
     justify-content: space-between;
+}
+
+.center{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    bottom: 0;
 }

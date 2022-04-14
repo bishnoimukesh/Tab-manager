@@ -1,0 +1,48 @@
+.focus-heading{
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 0;
+    padding: 1rem;
+}
+
+.focus-input{
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+    border-bottom: 2px solid #fff;
+    background: transparent;
+    justify-content: center;
+}
+
+.initial-focus{
+    display: flex;
+    flex-direction: column;
+}
+
+.set-focus{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.focus-checkbox{
+    border: none;
+    background: transparent;
+}
+
+.line-through{
+    text-decoration: line-through;
+}
+.focus-set, .line-through{
+    color: #fff;
+    font-size: 1.2rem;
+
+}
+.remove-btn{
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 1.2rem;
+}
