@@ -1,0 +1,24 @@
+.search-input{
+    border: none;
+    background: transparent;
+    margin: 0.5rem;
+    min-width: 20%;
+    padding: 5px;
+    text-align: center;
+    border-bottom: 2px solid #fff;
+}
+
+.search-input:focus{
+    outline: none;
+}
+
+.search-btn{
+    border: none;
+    background: none;
+    color: #fff;
+    text-align: center;
+}
+
+.search-icon{
+    font-size: 1.2rem
+}
