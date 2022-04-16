@@ -1,0 +1,11 @@
+.quote{
+    display: flex;
+    justify-content: center;
+}
+
+.quote-text{
+    color: #fff;
+    position:fixed;
+    bottom:0;
+    font-size: 1.2rem;
+}
