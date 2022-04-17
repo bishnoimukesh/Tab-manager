@@ -1,0 +1,12 @@
+.weather-section{
+    display: flex;
+}
+
+.weather-value{
+    color: #fff;
+    margin: 0.5rem;
+}
+
+.weather-icon{
+    height: 4rem
+}

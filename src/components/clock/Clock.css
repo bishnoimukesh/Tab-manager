@@ -1,0 +1,13 @@
+.time-display{
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    font-size: 7rem;
+    font-weight: bold;
+}
+
+.greet-msg{
+    color: #fff;
+    margin: 0 auto;
+    font-size: 2rem;
+}
