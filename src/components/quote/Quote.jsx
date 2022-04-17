@@ -18,7 +18,7 @@ const Quote = () => {
     return (
         <div className="quote">
             <p className="quote-text">
-                {quote.text} ~{quote.author == null ? `By unknown` : `By ${quote.author}`};
+                {quote.text} ~{quote.author == null ? `By unknown` : `By ${quote.author}`}
             </p>
         </div>
     )
