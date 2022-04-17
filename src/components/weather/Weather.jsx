@@ -12,7 +12,6 @@ const Weather = () => {
     });
     const [weatherData, setWeatherData] = useState(null);
     const onSuccess = location => {
-        console.log("succ");
         setLocation({
             load: true,
             coordinates: {
@@ -22,17 +21,13 @@ const Weather = () => {
         })
     }
     const onError = error => {
-        console.log("err");
         setLocation({
             load: true,
             error,
         })
     }
-    console.log(location.error);
     useEffect(() => {
-        console.log("asd");
         if (!("geolocation" in navigator)) {
-            console.log("here");
             setLocation((state) => ({
                 ...state,
                 load: true,
@@ -47,7 +42,6 @@ const Weather = () => {
     useEffect(() => {
         (async () => {
             const { data } = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${location.coordinates.lat}&lon=${location.coordinates.log}&appid=542f18acb500a0930e49a23a06919a1d`)
-            console.log(data)
             setWeatherData(data)
         })()
     }, [location.coordinates.lat, location.coordinates.log])
