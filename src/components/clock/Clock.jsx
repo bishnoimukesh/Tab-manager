@@ -16,8 +16,8 @@ const Clock = () => {
     const minutes = minute / 10 < 1 ? `0${minute}` : minute;
     const greet = `Good ${
         (hour > 4 && hour < 12 && "Morning") || 
-        (hour < 17 && "Afternoon") || 
-        (hour < 22 && "Evening") || 
+        (hour > 11 && hour < 17 && "Afternoon") || 
+        (hour > 4 && hour < 22 && "Evening") || 
         "Night"}, ${userName}`;
 
     useEffect(() => {

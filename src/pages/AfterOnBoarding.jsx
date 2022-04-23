@@ -1,4 +1,5 @@
-import {Search, Quote, Clock, Weather} from "../components/index";
+import {Search, Quote, Clock, Weather, Focus, Todo} from "../components/index";
+
 const AfterOnBoarding = () => {
     return (
         <>
@@ -8,9 +9,11 @@ const AfterOnBoarding = () => {
             </div>
             <div className="center">
                 <Clock/>
+                <Focus />
             </div>
             <div className="footer">
                 <Quote />
+                <Todo/>
             </div>
         </>
     )

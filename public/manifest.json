@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "manifest_version": 2,
-=======
-  "manifest_version": 1,
->>>>>>> 616c52e9c5d598d82e44d6632eebabc07e64e03b
   "name": "My Manager",
   "author": "Mukesh Bishnoi",
   "version": "1.0.1",
