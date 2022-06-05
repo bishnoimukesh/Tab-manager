@@ -1,8 +1,9 @@
-# Focussive
+# My Manager
 
 Replace your boring new tab with a soothing wallpaper , time, todo and quotess of the day.
 
-- [Live link](https://mymanger.netlify.app/)
+- [Live link](https://chrome.google.com/webstore/detail/my-manager/ggekoaaejeocdcbfpchhbaimmmnlnjih/related?hl=en&authuser=0) Google Chrome
+- [Live link](https://addons.mozilla.org/en-US/firefox/addon/my-manager/) Mozilla Firefox
 
 ## Features -
 
