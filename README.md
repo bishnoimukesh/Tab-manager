@@ -1,4 +1,4 @@
-# My Manager
+# Tab Manager
 
 Replace your boring new tab with a soothing wallpaper , time, todo and quotess of the day.
 
