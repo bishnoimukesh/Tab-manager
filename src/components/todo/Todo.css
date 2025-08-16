@@ -1,24 +1,162 @@
-.todo-modal{
-    color: #fff;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    min-width: 18rem;
-    /* height: 50%; */
-    background-color: rgba(0,0,0,0.6);
-    border-radius: 10px;
-    padding: 0.5rem;
-    overflow: auto;
+.todo-modal-animate {
+  animation: todoModalPopIn 0.35s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.todo-title{
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
+@keyframes todoModalPopIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -60%) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
-.close-btn{
-    background: transparent;
-    color: #fff;
-    border: none;
+.todo-input-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.add-btn {
+  background: linear-gradient(90deg, #30784e 0%, #518b0e 100%);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+}
+.add-btn:disabled {
+  background: #e0e0e0;
+  color: #bdbdbd;
+  cursor: not-allowed;
+}
+.add-btn:not(:disabled):hover {
+  background: linear-gradient(90deg, #518b0e 0%, #30784e 100%);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+/* Modal overlay */
+.todo-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  color: #18181b;
+  background: rgba(0,0,0,0.4);
+
+.todo-modal * {
+  color: #18181b;
+}
+  z-index: 1000;
+}
+
+/* Modal box */
+.todo-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  padding: 2rem 2.5rem 1.5rem 2.5rem;
+  min-width: 340px;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.todo-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: #18181b;
+  transition: color 0.2s;
+}
+.close-btn:hover {
+  color: #e74c3c;
+}
+
+.todo-list-section {
+  max-height: 220px;
+  overflow-y: auto;
+  margin-bottom: 0.5rem;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.todo-input {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+  width: -webkit-fill-available;
+}
+.todo-input:focus {
+  border: 1.5px solid #478f6a;
+}
+
+.empty-todo {
+  color: #aaa;
+  text-align: center;
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+.todo-main-btn {
+  background: linear-gradient(90deg, #272525 0%, #3c4649 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.todo-main-btn:hover {
+  background: linear-gradient(90deg, #3c4649 0%, #272525 100%);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.todo-modal .remove-btn i {
+  color: #e74c3c !important;
+}
+
+.todo-modal .remove-btn:hover i {
+  cursor: pointer;
+}
+
+.line-through span {
+  text-decoration: line-through;
+  color: #e74c3c;
 }

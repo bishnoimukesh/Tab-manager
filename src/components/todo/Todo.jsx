@@ -1,13 +1,16 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { TodoModal } from './TodoModal'
 const Todo = () => {
     const [showModal, setShowModal] = useState("")
     return (
         <div>
-            {showModal && <TodoModal setShowModal={setShowModal} />}
             <button
-                className='font-bold'
-                onClick={() => setShowModal(pre => !pre)}>Todo</button>
+                className='todo-main-btn'
+                onClick={() => setShowModal(true)}>
+                <i className="fa-solid fa-list-check"></i>
+                Todo
+            </button>
+            {showModal && <TodoModal setShowModal={setShowModal} />}
         </div>
     )
 }

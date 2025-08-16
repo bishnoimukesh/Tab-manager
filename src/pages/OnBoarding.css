@@ -1,5 +1,5 @@
 body{
-    background: url('https://source.unsplash.com/1600x900/?nature') no-repeat;
+    background: url('https://picsum.photos/1600/900') no-repeat center fixed;
     background-size: cover;
 }
 .onboard-page{
@@ -54,5 +54,8 @@ input:focus{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    bottom: 0;
+    position: absolute;
+    margin: auto 1rem;
+    bottom: 1rem;
+    width: -webkit-fill-available;
 }
