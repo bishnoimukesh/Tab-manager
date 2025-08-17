@@ -8,7 +8,7 @@ const GoogleSearch = () => {
         e.preventDefault();
         if (!searchQuery.trim()) return;
         const googleUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
-        window.open(googleUrl, '_blank');
+        window.location.href = googleUrl;
         setSearchQuery("");
     };
 
