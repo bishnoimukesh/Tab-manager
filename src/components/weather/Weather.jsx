@@ -16,8 +16,8 @@ const Weather = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [showDetails, setShowDetails] = useState(false);
-    const [paperPos, setPaperPos] = useState({ top: 0, right: 0, width: 0 });
     const iconRef = useRef(null);
+
     const onSuccess = location => {
         setLocation({
             load: true,
@@ -80,6 +80,7 @@ const Weather = () => {
             }
         })()
     }, [location.coordinates.lat, location.coordinates.log])
+    
     // Weather code mapping for Open-Meteo
     const weatherCodeMap = {
       0: { icon: '☀️', desc: 'Clear sky' },
@@ -115,17 +116,7 @@ const Weather = () => {
     return (
         <div
             className="weather-section weather-hover-root"
-            onMouseEnter={e => {
-                if (iconRef.current) {
-                    const rect = iconRef.current.getBoundingClientRect();
-                    setPaperPos({
-                        top: rect.bottom + window.scrollY + 8,
-                        left: rect.left + window.scrollX + rect.width / 2,
-                        width: rect.width
-                    });
-                }
-                setShowDetails(true);
-            }}
+            onMouseEnter={() => setShowDetails(true)}
             onMouseLeave={() => setShowDetails(false)}
         >
             {loading && <div className="weather-loading">Loading weather...</div>}
@@ -140,38 +131,29 @@ const Weather = () => {
                         </div>
                     </div>
                     {showDetails && createPortal(
-                        <div
-                            className="weather-paper enhanced"
-                            style={{
-                                position: 'absolute',
-                                top: paperPos.top,
-                                left: paperPos.left,
-                                transform: 'translateX(-50%)',
-                                minWidth: 320,
-                                maxWidth: '90vw',
-                                zIndex: 9999
-                            }}
-                        >
+                        <div className="weather-paper enhanced weather-fixed-portal">
                             <div className="weather-modal-header">
                                 <span className="weather-modal-header-icon">{weatherCodeMap[weatherData.weathercode]?.icon || '🌦️'}</span>
                                 <span className="weather-modal-header-title">Weather Details</span>
                             </div>
-                            <div className="weather-details-block enhanced">
-                                <div className="weather-detail-row"><span role="img" aria-label="Feels like">🌡️</span> <b>Feels like:</b> <span>{weatherData.apparent ?? '-'}</span> <span>°C</span></div>
-                                <div className="weather-detail-row"><span role="img" aria-label="Humidity">💧</span> <b>Humidity:</b> <span>{weatherData.humidity ?? '-'}</span> <span>%</span></div>
-                                <div className="weather-detail-row"><span role="img" aria-label="Pressure">🔽</span> <b>Pressure:</b> <span>{weatherData.pressure ?? '-'}</span> <span>hPa</span></div>
-                                <div className="weather-detail-row"><span role="img" aria-label="Sunrise">🌅</span> <b>Sunrise:</b> <span>{weatherData.sunrise ? new Date(weatherData.sunrise).toLocaleTimeString() : '-'}</span></div>
-                                <div className="weather-detail-row"><span role="img" aria-label="Sunset">🌇</span> <b>Sunset:</b> <span>{weatherData.sunset ? new Date(weatherData.sunset).toLocaleTimeString() : '-'}</span></div>
-                            </div>
-                            <div className="forecast-title enhanced">7-Day Forecast</div>
-                            <div className="forecast-list enhanced">
-                                {forecast.map((f, idx) => (
-                                    <div className="forecast-item enhanced" key={idx}>
-                                        <span className="forecast-day">{f.date.slice(5)}</span>
-                                        <span className="forecast-temp">{f.max}°/<span className="forecast-min">{f.min}°C</span></span>
-                                        <span className="forecast-desc">{weatherCodeMap[f.code]?.icon} <span className="forecast-desc-text">{weatherCodeMap[f.code]?.desc}</span></span>
-                                    </div>
-                                ))}
+                            <div className="weather-modal-content">
+                                <div className="weather-details-block enhanced">
+                                    <div className="weather-detail-row"><span role="img" aria-label="Feels like">🌡️</span> <b>Feels like:</b> <span>{weatherData.apparent ?? '-'}</span> <span>°C</span></div>
+                                    <div className="weather-detail-row"><span role="img" aria-label="Humidity">💧</span> <b>Humidity:</b> <span>{weatherData.humidity ?? '-'}</span> <span>%</span></div>
+                                    <div className="weather-detail-row"><span role="img" aria-label="Pressure">🔽</span> <b>Pressure:</b> <span>{weatherData.pressure ?? '-'}</span> <span>hPa</span></div>
+                                    <div className="weather-detail-row"><span role="img" aria-label="Sunrise">🌅</span> <b>Sunrise:</b> <span>{weatherData.sunrise ? new Date(weatherData.sunrise).toLocaleTimeString() : '-'}</span></div>
+                                    <div className="weather-detail-row"><span role="img" aria-label="Sunset">🌇</span> <b>Sunset:</b> <span>{weatherData.sunset ? new Date(weatherData.sunset).toLocaleTimeString() : '-'}</span></div>
+                                </div>
+                                <div className="forecast-title enhanced">7-Day Forecast</div>
+                                <div className="forecast-list enhanced">
+                                    {forecast.map((f, idx) => (
+                                        <div className="forecast-item enhanced" key={idx}>
+                                            <span className="forecast-day">{f.date.slice(5)}</span>
+                                            <span className="forecast-temp">{f.max}°/<span className="forecast-min">{f.min}°C</span></span>
+                                            <span className="forecast-desc">{weatherCodeMap[f.code]?.icon} <span className="forecast-desc-text">{weatherCodeMap[f.code]?.desc}</span></span>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>,
                         document.body

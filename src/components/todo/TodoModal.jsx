@@ -47,7 +47,7 @@ const TodoModal = ({ setShowModal }) => {
                         </div>
                     )}
                     {todoList.map(todo =>
-                        <div className="todo-item" key={todo.id}>
+                        <div className={`todo-item${todo.isComplete ? " selected" : ""}`} key={todo.id}>
                             <label className={`todo-label ${todo.isComplete ? "line-through" : ""}`}>
                                 <input type="checkbox"
                                     checked={todo?.isComplete} onChange={() => checkboxHandler(todo)} />

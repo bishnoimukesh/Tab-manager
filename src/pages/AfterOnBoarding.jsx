@@ -1,15 +1,14 @@
-import {Search, Quote, Clock, Weather, Focus, Todo} from "../components/index";
+import {Quote, Clock, Weather, Todo, GoogleSearch} from "../components/index";
 
 const AfterOnBoarding = () => {
     return (
         <>
             <div className="header">
-                <Search/>
                 <Weather/>
             </div>
             <div className="center">
                 <Clock/>
-                <Focus />
+                <GoogleSearch />
             </div>
             <div className="footer">
                 <Quote />

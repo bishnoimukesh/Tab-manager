@@ -1,7 +1,7 @@
 .quote{
     display: flex;
     justify-content: center;
-    max-width: 50%;
+    max-width: 75%;
 }
 
 .quote-text{

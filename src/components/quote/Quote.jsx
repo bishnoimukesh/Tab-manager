@@ -12,7 +12,7 @@ const Quote = () => {
                 const { data } = await axios.get(
                     'https://api.api-ninjas.com/v1/quotes',
                     {
-                        headers: { 'X-Api-Key': 'JOqC/qW02IzEdgFgk0slOA==9Z81hhe4bl9DTwci' },
+                        headers: { 'X-Api-Key': process.env.REACT_APP_QUOTES_API_KEY },
                     }
                 );
                 if (Array.isArray(data) && data.length > 0) {
@@ -23,6 +23,7 @@ const Quote = () => {
             } catch (err) {
                 const fallbackQuotes = [
                     { quote: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+                    { quote: "Stay hungry, Stay foolish.", author: "Steve Jobs" },
                     { quote: "The best way to get started is to quit talking and begin doing.", author: "Walt Disney" },
                 ];
                 setQuote(fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)]);

@@ -1,14 +1,45 @@
-import './Search.css';
-const Search = () => {
-    return (
-        <form action="https://www.google.com/search" method="get" 
-        name="searchform" className="searchform">
-            <input type="text" autoComplete="on" className="search-input" placeholder="Google Search" name="q"/>
-            <button className="search-btn" type="submit">
-                <i className="fa fa-search search-icon"></i>
-            </button>
-        </form>
-    )
-}
+import { useState } from "react";
+import "./Search.css";
 
-export {Search};
+const GoogleSearch = () => {
+    const [searchQuery, setSearchQuery] = useState("");
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        if (!searchQuery.trim()) return;
+        const googleUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
+        window.open(googleUrl, '_blank');
+        setSearchQuery("");
+    };
+
+    const handleKeyDown = (e) => {
+        if (e.key === "Escape") {
+            setSearchQuery("");
+        }
+    };
+
+    return (
+        <div className="google-search-section">
+            <div className="search-container">
+                <form className="search-input-container" onSubmit={handleSearch}>
+                    <input 
+                        className="google-search-input search-input" 
+                        type="text"
+                        placeholder="Search Google..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        onKeyDown={handleKeyDown}
+                    />
+                    <button 
+                        className="search-btn" 
+                        type="submit"
+                    >
+                        🔍
+                    </button>
+                </form>
+            </div>
+        </div>
+    );
+};
+
+export { GoogleSearch };
