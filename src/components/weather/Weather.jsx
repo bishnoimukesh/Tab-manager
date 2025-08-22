@@ -43,11 +43,14 @@ const Weather = () => {
                     message: "Geolocation not supported",
                 },
             }))
+            return;
         }
         navigator.geolocation.getCurrentPosition(onSuccess, onError)
     }, [])
+
     useEffect(() => {
-        if (!location.coordinates.lat || !location.coordinates.log) return;
+        // Only proceed if coordinates exist and are valid
+        if (!location.coordinates || !location.coordinates.lat || !location.coordinates.log) return;
         setLoading(true);
         setError(null);
         (async () => {
@@ -79,7 +82,7 @@ const Weather = () => {
                 setLoading(false);
             }
         })()
-    }, [location.coordinates.lat, location.coordinates.log])
+    }, [location.coordinates])
     
     // Weather code mapping for Open-Meteo
     const weatherCodeMap = {
@@ -113,6 +116,14 @@ const Weather = () => {
       99: { icon: '⛈️', desc: 'Thunderstorm: Heavy hail' },
     };
 
+    // Hide component if location is not available, permission denied, or error
+    if (
+        (!loading && (!location.coordinates || !location.coordinates.lat || !location.coordinates.log)) ||
+        error
+    ) {
+        return null;
+    }
+
     return (
         <div
             className="weather-section weather-hover-root"
@@ -120,8 +131,7 @@ const Weather = () => {
             onMouseLeave={() => setShowDetails(false)}
         >
             {loading && <div className="weather-loading">Loading weather...</div>}
-            {error && <div className="weather-error">{error}</div>}
-            {weatherData && !loading && !error && (
+            {weatherData && !loading && (
                 <>
                     <div className="weather-main-row">
                         <div className="weather-icon" ref={iconRef}>{weatherCodeMap[weatherData.weathercode]?.icon || '❓'}</div>

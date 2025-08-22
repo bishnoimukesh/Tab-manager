@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { createPortal } from 'react-dom'
 import { useTodo } from "../../context/todo-context"
 import './Todo.css';
 
@@ -25,7 +26,7 @@ const TodoModal = ({ setShowModal }) => {
     const deleteHandler = (id) => {
         deleteTodoHandler(id)
     }
-    return (
+    return createPortal(
         <>
             <div className="todo-modal-overlay" onClick={() => setShowModal(false)} />
             <div className='todo-modal todo-modal-animate'>
@@ -73,7 +74,8 @@ const TodoModal = ({ setShowModal }) => {
                     </button>
                 </div>
             </div>
-        </>
+        </>,
+        document.body
     )
 }
 

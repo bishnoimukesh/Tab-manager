@@ -1,0 +1,23 @@
+# Privacy Policy for Tab Manager Chrome Extension
+
+_Last updated: August 22, 2025_
+
+## Overview
+The Tab Manager Chrome Extension (“the Extension”) does not collect, transmit, or share any personal information or user data to external servers. All data (such as your todos, preferences, and settings) is stored locally in your browser and is not accessible to the developer or any third party.
+
+## Data Collection
+- The Extension uses local storage to save your todos and settings.
+- No personal information, browsing history, or sensitive data is collected or transmitted.
+
+## Permissions
+- The Extension may request access to browser tabs and local storage to provide its core functionality.
+- No data is sent outside your device.
+
+## Location Data
+- If you use the weather feature, your location may be accessed to provide local weather information. This data is used only for displaying weather and is not stored or transmitted.
+
+## Contact
+If you have any questions about this privacy policy, please contact the developer at [your email address].
+
+## Changes to This Policy
+This privacy policy may be updated from time to time. Any changes will be posted on this page.

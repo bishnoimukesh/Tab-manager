@@ -1,4 +1,16 @@
 .App{
-    background-color: rgba(0, 0, 0, 0.5);
+    /* Fast loading gradient fallback */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* High-performance background image with faster source */
+    background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    /* Improve rendering performance */
+    will-change: auto;
+    transform: translateZ(0);
+    /* Overlay for better text readability */
+    background-blend-mode: overlay;
     height: 100vh;
 }
