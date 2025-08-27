@@ -1,6 +1,6 @@
-# 🌟 Tab Manager - Beautiful New Tab Extension
+# 🌟 Tab Manager - Beautiful Productivity New Tab
 
-Transform your boring new tab into a personalized, productive workspace with stunning visuals and essential tools.
+Transform your boring new tab into a personalized, productive workspace with stunning visuals and essential productivity tools.
 
 ![Tab Manager Main Interface](https://github.com/bishnoimukesh/Tab-manager/raw/main/screenshots/main-interface.png)
 
@@ -31,12 +31,6 @@ Transform your boring new tab into a personalized, productive workspace with stu
 
 ![Todo List Interface](https://github.com/bishnoimukesh/Tab-manager/raw/main/screenshots/todo-modal.png)
 
-### 🔍 **Integrated Google Search**
-- Modern glassmorphism search interface
-- Instant redirection to Google search results
-- Debounced input for smooth performance
-- Beautiful gradient design with hover effects
-
 ### 🖼️ **Stunning Visual Experience**
 - High-quality background images from Unsplash
 - Optimized image loading with gradient fallbacks
@@ -50,7 +44,7 @@ Transform your boring new tab into a personalized, productive workspace with stu
 ## 📱 Screenshots
 
 ### Main Interface
-The clean, modern interface showing time, weather, and search functionality.
+The clean, modern interface showing time, weather, and productivity tools.
 
 ### Weather Details
 Comprehensive weather information including 7-day forecast with beautiful icons and descriptions.
@@ -117,7 +111,6 @@ Tab-manager/
 ├── src/
 │   ├── components/
 │   │   ├── clock/             # Time display component
-│   │   ├── search/            # Google search integration
 │   │   ├── todo/              # Todo list management
 │   │   ├── weather/           # Weather information
 │   │   └── quote/             # Daily quotes

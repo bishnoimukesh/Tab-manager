@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Tab Manager",
-  "version": "1.1.0",
-  "description": "A modern tab and productivity manager.",
+  "name": "Tab Manager - Productive New Tab",
+  "version": "1.2.0",
+  "description": "Transform your new tab into a beautiful productivity workspace with time, weather, todos, and daily quotes.",
   "action": {
     "default_popup": "index.html",
     "default_icon": {
@@ -19,9 +19,9 @@
     "48": "logo192.png",
     "128": "logo512.png"
   },
-  "permissions": [],
+  "permissions": ["geolocation"],
   "host_permissions": [
-    "http://*/*",
-    "https://*/*"
+    "https://api.open-meteo.com/*",
+    "https://images.unsplash.com/*"
   ]
 }
